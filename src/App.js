@@ -7,30 +7,36 @@ const Bmob = require("hydrogen-js-sdk");
 Bmob.initialize('7896ca43470dec5e', '123456');
 
 export default class extends Component {
-
+    allData = [];
     state = {
         inputValue: '',
         message: '',
     }
 
     componentDidMount() {
-        this.getNextMessage();
+        this.get100Message();
     }
 
-    getNextMessage = async () => {
+    get100Message = async () => {
         const query = Bmob.Query("t_message");
         const beginTime = new Date('2020-08-01 00:00:00').getTime();
         const curTime = new Date().getTime();
 
         const randomTime = Math.floor(Math.random() * (curTime - beginTime) ) + beginTime;
         query.equalTo("createdAt", ">", this.time(randomTime));
-        query.limit(1);
+        query.limit(100);
         const res = await query.find();
         if (res.length === 0) return;
+        this.allData = res;
+        this.getNextMessage();
+    }
+
+    getNextMessage = () => {
+        const index = Math.floor(Math.random() * this.allData.length);
+
         this.setState({
-            message: res[0].message
+            message: this.allData[index].message,
         });
-        console.log('获取成功', res);
     }
 
     sendNewMessage = async () => {
@@ -66,9 +72,12 @@ export default class extends Component {
     render() {
         return (
             <div className="App">
-                <div className="title" >333</div>
+                <div className="title" >48小时，没人发布该网站自动关闭</div>
 
-                <div className="message">{this.state.message}</div>
+                <div className="messageWraper">
+                    <div className='message'>{this.state.message}</div>
+                    <button onClick={this.getNextMessage} className="submit">下一条</button>
+                </div>
     
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <TextArea

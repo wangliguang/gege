@@ -2,11 +2,26 @@
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
 }
+
+
+
+.title {
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
 
 .writeLetter {
   width: 800px;
   height: 300px;
+}
+
+
+.submit {
+  align-self: flex-end;
+  margin-top: 25px;
 }

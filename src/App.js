@@ -8,6 +8,7 @@ export default class extends Component {
 
     state = {
         inputValue: '',
+        message: 'xxxx',
     }
 
     changeText = (e) => {
@@ -25,9 +26,7 @@ export default class extends Component {
             <div className="App">
                 <div className="title" >有时，不是不想说，不是没人说，而是想没有压力的说，如果这里能承载你的部分宣泄，便是我的幸运</div>
 
-                <div>
-                    
-                </div>
+                <div className="message">{this.state.message}</div>
     
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <TextArea

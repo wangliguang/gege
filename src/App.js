@@ -58,8 +58,10 @@ export default class extends Component {
     }
 
     changeText = (e) => {
+        
         if(e && e.target && e.target.value){
             let value = e.target.value;
+            console.log(value);
             this.setState(function(state,prop){
                 let task = Object.assign({},{...state.task},{script:value})
                 return {
@@ -72,7 +74,11 @@ export default class extends Component {
     render() {
         return (
             <div className="App">
-                <div className="title" >48小时，没人发布该网站自动关闭</div>
+                <div className="title" >
+                    <div style={{height: 48 }}>不知从什么时候开始，想聊些心里话，貌似已经找不到没有合适的渠道.找家人担心家人操心; 找朋友担心打扰人家; 发圈要检查屏蔽某些人; 发微博担心有人抬杠</div>
+                    <div style={{height: 24, marginTop: 20 }}>而在这里，没有人认识你，没有抬杠，没有点赞，只存放着你那无人打扰的心声</div>
+                    <div style={{height: 24, marginTop: 20 }}>如果24小时内没有人发言，该网站将禁止发布，只允许浏览，一个月后该网站关闭数据清空，正如我轻轻的来，最后又轻轻的走，挥一挥衣袖，不带走一片云彩</div>
+                </div>
 
                 <div className="messageWraper">
                     <div className='message'>{this.state.message}</div>
@@ -84,7 +90,7 @@ export default class extends Component {
                         value={this.state.inputValue}
                         onChange={this.changeText}
                         style={{ width: '300px', height: '100px', resize: 'none'}}
-                        placeholder="to someone"
+                        placeholder="请大家共同维护我们这一片净土，感谢你的信任"
                     />
                     <button onClick={this.sendNewMessage} className="submit">发送</button>
                 </div>

@@ -93,6 +93,7 @@ export default class extends Component {
                         style={{ width: '600px', height: '100px', resize: 'none'}}
                         placeholder="请大家共同维护我们这一片净土，感谢你的信任"
                     />
+                    <div style={{ color: 'gray', alignSelf: 'flex-end', marginTop: 10 }}>{`${this.state.inputValue.length}/300`}</div>
                     <button onClick={this.sendNewMessage} className="submit">发送</button>
                 </div>
 

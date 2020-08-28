@@ -6,6 +6,8 @@ const { TextArea } = Input;
 const Bmob = require("hydrogen-js-sdk");
 Bmob.initialize('7896ca43470dec5e', '123456');
 
+document.title = "无人知晓的心声";
+
 export default class extends Component {
     allData = [];
     state = {

@@ -64,6 +64,16 @@ export default class extends Component {
         return Y+M+D+h+m+s;
     }
 
+    IsPC(){  
+        var userAgentInfo = navigator.userAgent;
+        var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");  
+        var flag = true;  
+        for (var v = 0; v < Agents.length; v++) {  
+            if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }  
+        }  
+        return flag;  
+     }
+
     changeText = (e) => {
         // 2020-08-6 11:49:7
         if(e && e.target && e.target.value){
@@ -83,8 +93,7 @@ export default class extends Component {
             <div className="App">
                 <div className="title" >
                     <div style={{ }}>不知从什么时候开始，想聊些心里话，貌似已经找不到没有合适的渠道。找家人担心家人操心；找朋友担心打扰人家；发圈要检查屏蔽某些人；发微博担心有人抬杠；听音乐有感而发也被调侃网抑云</div>
-                    <div style={{ marginTop: 20 }}>而在这里，没有人认识你，没有抬杠，没有点赞，只为你倾诉</div>
-                    <div style={{ marginTop: 20 }}>如果24小时内没有人发言，该网站将禁止发布，只允许浏览，一个月后该网站关闭数据清空，正如我轻轻的来，最后又轻轻的走，挥一挥衣袖，不带走一片云彩</div>
+                    <div style={{ marginTop: 20 }}>而在这里，没有人认识你，没有抬杠，没有点赞，只为你倾诉。如果24小时内没有人发言，该网站将禁止发布，只允许浏览，一个月后该网站关闭数据清空，正如我轻轻的来，最后又轻轻的走，挥一挥衣袖，不带走一片云彩</div>
                 </div>
 
                 <div className="messageWraper">

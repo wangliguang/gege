@@ -1,40 +1,55 @@
+html {
+  background-color: #060A0A;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .App {
-  width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: #060A0A;
+  max-width: 60vw;
+  padding-bottom: 100px;
+  position: relative;
 }
 
-
-
 .title {
-  margin-bottom: 100px;
+  margin-left: 20px;
+  margin-right: 20px;
   margin-top: 50px;
   color: whitesmoke;
-  width: 600px;
 }
 
 .messageWraper {
-  margin-bottom: 70px;
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
 }
 
 .message {
-  width: 600px;
-  height: 100px;
+  width: 60vw;
+  height: 200px;
   color: whitesmoke;
-  margin-bottom: 20px;
+}
+
+.input {
+  width: 60vw;
+  margin-top: 50px;
+  height: 100px; 
+  resize: none;
 }
 
 .submit {
   align-self: flex-end;
-  margin-top: 25px;
+  margin-top: 50px;
+  width: 80px;
+  height: 40px;
 }
 
 .email {
